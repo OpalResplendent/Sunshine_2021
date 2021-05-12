@@ -7,7 +7,5 @@ Players control a teru teru bozu
 that swings on two grappling hooks.  
 
 Uses the following libraries:  
-• GLEW  
-• GLM  
-• GLAD  
+• GLEW / GLM / GLAD  
 • stb_image.h  
