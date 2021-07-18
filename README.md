@@ -10,3 +10,5 @@ Uses the following libraries:
 • C++ Standard Template Library  
 • GLEW / GLM / GLAD  
 • stb_image.h  
+
+![rectangle grapple action](https://raw.githubusercontent.com/OpalResplendent/Sunshine/main/misc/sunshine%20video.gif)
