@@ -1,6 +1,9 @@
 @echo off
 set ProjectName=Sunshine
-set ProjectDirectory=C:\DEV\Projects\Sunshine
+set ProjectDirectory=v:\Projects\Sunshine
 set Editor=4coder
+set Debugger=RemedyBG
 
-C:\DEV\Tools\bats\startup.bat
+set StartupFiles=""%ProjectDirectory%\code\%ProjectName%.cpp" "%ProjectDirectory%\code\win32_%ProjectName%.cpp""
+
+v:\Tools\bats\startup.bat

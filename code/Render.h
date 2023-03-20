@@ -1,9 +1,7 @@
 #ifndef RENDER_H
 
 #include <glad/glad.h>
-#include <glm/glm.hpp>
 #include "shaders.h"
-
 
 inline v2
 NormalizeV2(v2& n)
@@ -42,7 +40,6 @@ CrossProductV2(v2 a, v2 b)
     return r;
 }
 
-
 struct AABB {
     union {
         struct {
@@ -76,11 +73,56 @@ Blend(Color a, Color b, float t)
     return(result);
 }
 
-
-void DrawSquare(glm::vec4 square, glm::vec3 color, Shader* shader);
 void DrawAABB(AABB box, Color color, Shader* shader);
-
 void FancyDrawAABB(AABB box, Color color, Shader* shader);
+
+
+enum RENDER_OBJECT {RO_LINE, RO_BOX, RO_TEXT, RO_TILE, RO_TYPES};
+
+#define RO_COLOR union{uint32 color;struct {uint8 r, g, b, a;};}
+
+struct RO_Line {
+	real32 x1, y1;
+	RO_COLOR;
+	real32 x2, y2;
+};
+
+enum RO_BOX_STYLE {RO_BOX_FILLED, RO_BOX_LINES, RO_BOX_STYLE_TYPES};
+
+struct RO_Box{
+	real32 x, y;
+	RO_COLOR;
+	real32 h, w;
+	RO_BOX_STYLE style;
+};
+
+struct RO_Text {
+	real32 x, y; // bottom left pixel
+	RO_COLOR;
+	real32 scale;
+	uint32 style;
+	char* text;
+};
+
+struct RO_Tile {
+	real32 x, y;
+	uint32 textureindex;
+	uint32 number;
+	real32 sizex, sizey;
+};
+
+struct RenderObject {
+	RENDER_OBJECT type;
+	union{
+		RO_Line line;
+		RO_Box box;
+		RO_Text text;
+		RO_Tile tile;
+	};
+    uint64 depth;
+	RenderObject* next;
+};
+
 
 #define RENDER_H
 #endif
