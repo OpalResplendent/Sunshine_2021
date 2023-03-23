@@ -129,7 +129,7 @@ struct game_memory {
     bool swappedgamecode;
     bool shuttingdown;
     uint64 timer;
-    //RenderObject* renderbufferstart;
+    RenderObject* renderbufferstart;
     
     // TODO: use allocated memory instead of cheating with static
     uint32 persistsize;

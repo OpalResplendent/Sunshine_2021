@@ -686,6 +686,7 @@ WinMain( HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine, int nCmd
         // end of rendering
         glUseProgram(0);
         
+        HDC DeviceContext = GetDC(MainWindowHandle);
         SwapBuffers(DeviceContext);
         glFinish();
         win_wait(); // this is still very bad

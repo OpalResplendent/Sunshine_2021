@@ -2,8 +2,12 @@
 // TODO: get available multisampling options
 // TODO: reversed-z
 // TODO: pick OGL version to target
-//#include <glew/glew.h>
-#include <gl/gl.h>
+
+#define GLEW_STATIC
+#include <glew/glew.h>
+#include <glew/wglew.h>
+//#include <glad/glad.h>
+//#include <gl/gl.h>
 //#include <gl/glext.h>
 
 #include <stdio.h>
@@ -15,6 +19,16 @@
 #endif
 
 #include "render_ogl_shader.cpp"
+
+#ifndef __glew_h__
+_wglCreateContextAttribsARB *wglCreateContextAttribsARB = 0;
+_wglChoosePixelFormatARB *wglChoosePixelFormatARB = 0;
+_wglSwapIntervalEXT *wglSwapIntervalEXT = 0;
+#endif
+
+typedef HGLRC _wglCreateContextAttribsARB(HDC hDC, HGLRC hShareContext, const int *attribList);
+typedef BOOL _wglChoosePixelFormatARB(HDC hdc, const int *piAttribIList, const FLOAT *pfAttribFList, UINT nMaxFormats, int *piFormats, UINT *nNumFormats);
+typedef BOOL _wglSwapIntervalEXT(int interval);
 
 #define WGL_SAMPLE_BUFFERS_ARB			      0x2041
 #define WGL_SAMPLES_ARB                         0x2042
@@ -37,7 +51,6 @@
 
 
 // stupid shit:
-
 #define WGL_NUMBER_PIXEL_FORMATS_ARB            0x2000
 #define WGL_DRAW_TO_WINDOW_ARB                  0x2001
 #define WGL_DRAW_TO_BITMAP_ARB                  0x2002
@@ -94,15 +107,6 @@
 // end stupid shit
 
 
-
-typedef HGLRC _wglCreateContextAttribsARB(HDC hDC, HGLRC hShareContext, const int *attribList);
-typedef BOOL _wglChoosePixelFormatARB(HDC hdc, const int *piAttribIList, const FLOAT *pfAttribFList, UINT nMaxFormats, int *piFormats, UINT *nNumFormats);
-typedef BOOL _wglSwapIntervalEXT(int interval);
-
-_wglCreateContextAttribsARB *wglCreateContextAttribsARB = 0;
-_wglSwapIntervalEXT *wglSwapIntervalEXT = 0; 
-_wglChoosePixelFormatARB *wglChoosePixelFormatARB = 0;
-
 #define ATTRIBUTE_LOCATION_POSITIONS 0x0
 #define ATTRIBUTE_LOCATION_TEXTUREUV 0x1
 
@@ -133,7 +137,7 @@ uint32 ImagesLoaded;
 
 uint8 asciitooryx[128];
 
-#if 1
+#if 0
 uint32
 LoadImageOGL(char* filename, image_info* io)
 {
@@ -238,7 +242,7 @@ win_initOpenGL(HINSTANCE hInstance)
     wglSwapIntervalEXT = (_wglSwapIntervalEXT *)wglGetProcAddress("wglSwapIntervalEXT");
     
     // general ogl extensions
-    win_initOGL();
+    //win_initOGL();
     
     // finally destroy the dummy context and window
     wglMakeCurrent(dummyDC, 0);
@@ -389,7 +393,8 @@ void
 DrawText(RO_Text* text)
 {
     glColor3ub(text->r, text->g, text->b);
-    my_stbtt_print(text->x,text->y,text->text);
+    // my_stbtt_print(text->x,text->y,text->text);
+    // disabling this to compile,
 #if 0
     uint32 textureindex = 3;
     image_info *image = &Images[textureindex];
@@ -714,7 +719,7 @@ TestOpenGL(int number, tempbox* boxes)
 void
 debug_justdrawtext(char* text)
 {
-    
+#if 0
     RO_Text ro = {0xFFFFFFFF,16,32,2,0,text};
     
     // easyfont
@@ -729,4 +734,5 @@ debug_justdrawtext(char* text)
     glVertexPointer(2, GL_FLOAT, 16, buffer);
     glDrawArrays(GL_QUADS, 0, numquads*4);
     glDisableClientState(GL_VERTEX_ARRAY);
+#endif
 }

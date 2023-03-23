@@ -1,6 +1,7 @@
 #ifndef RENDER_H
 
-#include <glad/glad.h>
+//#include <glad/glad.h>
+
 #include "shaders.h"
 
 inline v2

@@ -24,7 +24,7 @@ set LibraryCompilerFlags=%CommonCompilerFlags% -LD
 REM -MTd
 
 REM Linker options
-set LinkerLibraries=kernel32.lib user32.lib gdi32.lib winmm.lib opengl32.lib ws2_32.lib
+set LinkerLibraries=kernel32.lib user32.lib gdi32.lib winmm.lib opengl32.lib ws2_32.lib V:\Libraries\lib\glew32s.lib
 REM dsound.lib
 
 set CommonLinkerFlags=-incremental:no -opt:ref %LinkerLibraries%
