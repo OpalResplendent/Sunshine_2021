@@ -1,6 +1,6 @@
  Sunshine
 
- Timestamp is 6418580b (Mon Mar 20 05:56:43 2023)
+ Timestamp is 641ce932 (Thu Mar 23 17:05:06 2023)
 
  Preferred load address is 0000000180000000
 
@@ -1080,11 +1080,11 @@
  0002:00007ab0       __rtc_tzz                  0000000180014ab0     LIBCMT:initsect.obj
  0002:000086c4       __IMPORT_DESCRIPTOR_KERNEL32 00000001800156c4     kernel32:KERNEL32.dll
  0002:000086d8       __NULL_IMPORT_DESCRIPTOR   00000001800156d8     kernel32:KERNEL32.dll
- 0003:00000000       ?BACKBUFFER_HEIGHT@@3HA    0000000180016000     Sunshine.obj
- 0003:00000004       ?BACKBUFFER_WIDTH@@3HA     0000000180016004     Sunshine.obj
- 0003:00000008       ?WINDOW_HEIGHT@@3HA        0000000180016008     Sunshine.obj
- 0003:0000000c       ?WINDOW_WIDTH@@3HA         000000018001600c     Sunshine.obj
- 0003:00000010       ?m4identity@@3Tm4@@A       0000000180016010     Sunshine.obj
+ 0003:00000000       ?m4identity@@3Tm4@@A       0000000180016000     Sunshine.obj
+ 0003:00000040       ?BACKBUFFER_HEIGHT@@3HA    0000000180016040     Sunshine.obj
+ 0003:00000044       ?BACKBUFFER_WIDTH@@3HA     0000000180016044     Sunshine.obj
+ 0003:00000048       ?WINDOW_HEIGHT@@3HA        0000000180016048     Sunshine.obj
+ 0003:0000004c       ?WINDOW_WIDTH@@3HA         000000018001604c     Sunshine.obj
  0003:00000050       __security_cookie_complement 0000000180016050     LIBCMT:gs_cookie.obj
  0003:00000058       __security_cookie          0000000180016058     LIBCMT:gs_cookie.obj
  0003:00000060       _fltused                   0000000180016060     LIBCMT:fltused.obj

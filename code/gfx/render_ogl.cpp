@@ -49,7 +49,6 @@ typedef BOOL _wglSwapIntervalEXT(int interval);
 #define ERROR_INVALID_VERSION_ARB			   0x2095
 #define ERROR_INVALID_PROFILE_ARB			   0x2096
 
-
 // stupid shit:
 #define WGL_NUMBER_PIXEL_FORMATS_ARB            0x2000
 #define WGL_DRAW_TO_WINDOW_ARB                  0x2001
@@ -105,7 +104,6 @@ typedef BOOL _wglSwapIntervalEXT(int interval);
 #define WGL_TYPE_COLORINDEX_ARB                 0x202C
 
 // end stupid shit
-
 
 #define ATTRIBUTE_LOCATION_POSITIONS 0x0
 #define ATTRIBUTE_LOCATION_TEXTUREUV 0x1
